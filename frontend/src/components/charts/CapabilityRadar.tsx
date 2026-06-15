@@ -8,15 +8,15 @@ import {
     Tooltip,
     Legend,
 } from 'recharts'
-import type { RadarDataPoint } from '../../types/domain'
 
+import type { RadarDataPoint } from '../../types/domain'
 
 // CAPABILITY RADAR CHART
 // Shows engineer's 9 capability scores
 // as a polygon on a spider/radar chart
 
 interface CapabilityRadarProps {
-    data: RadarDataPoint[]        // 9 data points
+    data: RadarDataPoint[]          // 9 data points
     colors?: {
         current?: string            // color for current scores line
         target?:  string            // color for target scores line
