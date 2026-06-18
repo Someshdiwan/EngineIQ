@@ -21,6 +21,7 @@ interface CapabilityRadarProps {
         current?: string            // color for current scores line
         target?:  string            // color for target scores line
     }
+
     height?: number               // chart height (default 320)
     showTarget?: boolean          // show target line or not
     showLegend?: boolean
@@ -116,7 +117,7 @@ export const CapabilityRadar: React.FC<CapabilityRadarProps> = ({
         width="100%" = fills container
         height="100%" = fills parent div height
         This is why charts were blank before — no height on parent!
-                */
+        */
             }
             <ResponsiveContainer width="100%" height="100%">
                 <RadarChart
@@ -165,13 +166,14 @@ export const CapabilityRadar: React.FC<CapabilityRadarProps> = ({
                         />
                     )}
 
-                    {/* CURRENT line (solid) — shown in front */}
+                    {/* CURRENT line (solid) shown in front */}
                     <Radar
                         name="Current"
                         dataKey="current"
                         stroke={currentColor}
                         fill={currentColor}
-                        fillOpacity={0.35}         // semi-transparent fill
+                        fillOpacity={0.35}
+                        // semi-transparent fill
                         strokeWidth={2.5}
                         dot={{
                             r:           4,
@@ -186,7 +188,6 @@ export const CapabilityRadar: React.FC<CapabilityRadarProps> = ({
                             strokeWidth: 2,
                         }}
                     />
-
                     {/* Tooltip on hover */}
                     <Tooltip content={<CustomTooltip />} />
 
