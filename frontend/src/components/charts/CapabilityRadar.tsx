@@ -140,8 +140,6 @@ export const CapabilityRadar: React.FC<CapabilityRadarProps> = ({
                         }}
                         tickLine={false}
                     />
-
-                    {/* Scale numbers 0-4 in the middle */}
                     <PolarRadiusAxis
                         angle={90}
                         domain={[0, 4]}       // min=0, max=4
