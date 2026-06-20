@@ -31,7 +31,6 @@ interface CapabilityRadarProps {
 // Recharts calls this with active, payload, label
 const CustomTooltip = ({ active, payload, label }: any) => {
     if (!active || !payload || payload.length === 0) return null
-
     return (
         <div style={{
             background:    'rgba(15,23,42,0.95)',
