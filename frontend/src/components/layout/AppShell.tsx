@@ -3,12 +3,13 @@ import './AppShell.css'
 // APP SHELL The outer wrapper of the entire app
 // Contains: top navbar + main content area
 // Every page renders INSIDE this shell
-
 interface AppShellProps {
-    children: React.ReactNode  // whatever page is active
+    children: React.ReactNode
+    // whatever page is active
     isDark: boolean
     onToggleTheme: () => void
-    onHome: () => void         // clicking logo → goes to dashboard
+    onHome: () => void
+    // clicking logo → goes to dashboard
 }
 
 export const AppShell: React.FC<AppShellProps> = ({
@@ -19,10 +20,8 @@ export const AppShell: React.FC<AppShellProps> = ({
                                                   }) => {
     return (
         <div className="app-shell">
-
             {/* TOP NAVBAR */}
             <nav className="topnav">
-
                 {/* Logo clicking goes home */}
                 <button className="nav-logo" onClick={onHome}>
                     <span className="logo-icon">⬡</span>
@@ -60,10 +59,9 @@ export const AppShell: React.FC<AppShellProps> = ({
 
             {/* FOOTER */}
             <footer className="app-footer">
-                <span>EngineIQ © 2026</span>
+                <span>EngineIQ</span>
                 <span>Built with React + Spring Boot</span>
             </footer>
-
         </div>
     )
 }
@@ -86,10 +84,6 @@ onClick handlers
 title attribute
 → Native browser tooltip on hover
 → Good UX for theme toggle and avatar
-
-Conditional rendering in JSX
-→ {isDark ? '☀️' : '🌙'} = ternary operator
-→ Same idea used in App.tsx for showing Dashboard vs EngineerProfile
 
 CSS Modules / className strategy
 → All styles in AppShell.css
