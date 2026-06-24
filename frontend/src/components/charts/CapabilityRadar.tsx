@@ -14,16 +14,21 @@ import type { RadarDataPoint } from '../../types/domain'
 // CAPABILITY RADAR CHART
 // Shows engineer's 9 capability scores
 // as a polygon on a spider/radar chart
-
 interface CapabilityRadarProps {
-    data: RadarDataPoint[]          // 9 data points
+    data: RadarDataPoint[]
+    // 9 data points
+
     colors?: {
         current?: string            // color for current scores line
         target?:  string            // color for target scores line
     }
 
-    height?: number               // chart height (default 320)
-    showTarget?: boolean          // show target line or not
+    height?: number
+    // chart height (default 320)
+
+    showTarget?: boolean
+    // show target line or not
+
     showLegend?: boolean
 }
 
@@ -89,8 +94,8 @@ export const CapabilityRadar: React.FC<CapabilityRadarProps> = ({
 
     // KEY FIX: Recharts cannot read CSS variables like var(primary)
     // Must pass actual hex values
-    const currentColor = colors.current ?? '#6366f1'  // indigo
-    const targetColor  = colors.target  ?? '#f59e0b'  // amber
+    const currentColor = colors.current ?? '#6366f1'
+    const targetColor  = colors.target  ?? '#f59e0b'
 
     // Empty state
     if (!data || data.length === 0) {
@@ -111,12 +116,8 @@ export const CapabilityRadar: React.FC<CapabilityRadarProps> = ({
     return (
         <div style={{ width: '100%', height }}>
             {
-                /*
-        ResponsiveContainer — MUST have explicit height on parent div
-        width="100%" = fills container
-        height="100%" = fills parent div height
-        This is why charts were blank before — no height on parent!
-        */
+                /* ResponsiveContainer — MUST have explicit height on parent div width="100%" = fills container
+                height="100%" = fills parent div height. This is why charts were blank before no height on parent! */
             }
             <ResponsiveContainer width="100%" height="100%">
                 <RadarChart
@@ -128,7 +129,6 @@ export const CapabilityRadar: React.FC<CapabilityRadarProps> = ({
                         stroke="rgba(148,163,184,0.15)"
                         strokeWidth={1}
                     />
-
                     {/* Labels around the outside (capability names) */}
                     <PolarAngleAxis
                         dataKey="capability"
@@ -141,15 +141,18 @@ export const CapabilityRadar: React.FC<CapabilityRadarProps> = ({
                     />
                     <PolarRadiusAxis
                         angle={90}
-                        domain={[0, 4]}       // min=0, max=4
-                        tickCount={5}         // shows 0,1,2,3,4
+                        domain={[0, 4]}
+                        // min=0, max=4
+
+                        tickCount={5}
+                        // shows 0,1,2,3,4
+
                         tick={{
                             fill:     '#64748b',
                             fontSize: 9,
                         }}
                         axisLine={false}
                     />
-
                     {/* TARGET line (dashed) shown behind current */}
                     {showTarget && (
                         <Radar
@@ -157,12 +160,14 @@ export const CapabilityRadar: React.FC<CapabilityRadarProps> = ({
                             dataKey="target"
                             stroke={targetColor}
                             fill={targetColor}
-                            fillOpacity={0.1}        // very transparent fill
+                            fillOpacity={0.1}
+                            // very transparent fill
+
                             strokeWidth={2}
-                            strokeDasharray="5 3"    // dashed line
+                            strokeDasharray="5 3"
+                            // dashed line
                         />
                     )}
-
                     {/* CURRENT line (solid) shown in front */}
                     <Radar
                         name="Current"
