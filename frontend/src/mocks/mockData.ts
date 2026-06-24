@@ -10,32 +10,31 @@ import type {
 // Mock data = fake database in memory
 // Later: delete this, replace with API calls
 
-// ENGINEERS
 export const MOCK_ENGINEERS: Engineer[] = [
     {
         id: 'E-001',
-        name: 'Sarah Chen',
-        email: 'sarah.chen@engineiq.io',
+        name: 'Sarah Li',
+        email: 'SarahLi@EngineIQ.com',
         currentLevel: 'L3',
         track: 'IC',
         team: 'Platform',
         managerId: 'M-001',
-        joinDate: '2022-03-15',
+        joinDate: '2026-03-15',
     },
     {
         id: 'E-002',
-        name: 'Marcus Johnson',
-        email: 'marcus.j@engineiq.io',
+        name: 'Johnson Trump',
+        email: 'JohnsonTrump@EngineIQ.com',
         currentLevel: 'L4',
         track: 'IC',
         team: 'Backend',
         managerId: 'M-001',
-        joinDate: '2021-06-20',
+        joinDate: '2026-06-20',
     },
     {
         id: 'E-003',
         name: 'Priya Patel',
-        email: 'priya.p@engineiq.io',
+        email: 'priyaPatel@EngineIQ.com',
         currentLevel: 'L3',
         track: 'IC',
         team: 'Frontend',
@@ -45,31 +44,31 @@ export const MOCK_ENGINEERS: Engineer[] = [
     {
         id: 'E-004',
         name: 'Alex Kim',
-        email: 'alex.kim@engineiq.io',
+        email: 'AlexKim@EngineIQ.com',
         currentLevel: 'L2',
         track: 'IC',
         team: 'Mobile',
         managerId: 'M-002',
-        joinDate: '2023-09-01',
+        joinDate: '2026-09-01',
     },
     {
         id: 'E-005',
         name: 'Jordan Rivera',
-        email: 'jordan.r@engineiq.io',
+        email: 'jordanRivera@EngineIQ.com',
         currentLevel: 'L4',
         track: 'Management',
         team: 'Platform',
         managerId: 'M-001',
-        joinDate: '2020-11-15',
+        joinDate: '2026-11-15',
     },
 ]
 
-// SNAPSHOTS
+// ─── SNAPSHOTS ────────────────────────────
 // Each engineer has 2 snapshots = growth tracking
 // Latest snapshot = current skills
 // Previous snapshot = where they were before
-
 export const MOCK_SNAPSHOTS: Record<string, CapabilitySnapshot[]> = {
+
     'E-001': [
         {
             id: 'SNAP-001-B',
@@ -114,7 +113,7 @@ export const MOCK_SNAPSHOTS: Record<string, CapabilitySnapshot[]> = {
             id: 'SNAP-002-B',
             engineerId: 'E-002',
             evaluatorId: 'M-001',
-            evaluatedAt: '2026-01-05T10:00:00Z',
+            evaluatedAt: '2026-01-05T10:00:00Z',  // latest
             capabilities: {
                 SYSTEM_DESIGN:       4,
                 TECHNICAL_DEPTH:     4,
@@ -132,7 +131,7 @@ export const MOCK_SNAPSHOTS: Record<string, CapabilitySnapshot[]> = {
             id: 'SNAP-002-A',
             engineerId: 'E-002',
             evaluatorId: 'M-001',
-            evaluatedAt: '2025-06-20T10:00:00Z',
+            evaluatedAt: '2025-06-20T10:00:00Z',  // previous
             capabilities: {
                 SYSTEM_DESIGN:       3,
                 TECHNICAL_DEPTH:     4,
@@ -153,7 +152,7 @@ export const MOCK_SNAPSHOTS: Record<string, CapabilitySnapshot[]> = {
             id: 'SNAP-003-B',
             engineerId: 'E-003',
             evaluatorId: 'M-002',
-            evaluatedAt: '2026-01-08T10:00:00Z',
+            evaluatedAt: '2026-01-08T10:00:00Z',  // latest
             capabilities: {
                 SYSTEM_DESIGN:       2,
                 TECHNICAL_DEPTH:     3,
@@ -171,7 +170,7 @@ export const MOCK_SNAPSHOTS: Record<string, CapabilitySnapshot[]> = {
             id: 'SNAP-003-A',
             engineerId: 'E-003',
             evaluatorId: 'M-002',
-            evaluatedAt: '2025-08-01T10:00:00Z',
+            evaluatedAt: '2025-08-01T10:00:00Z',  // previous
             capabilities: {
                 SYSTEM_DESIGN:       1,
                 TECHNICAL_DEPTH:     2,
@@ -192,7 +191,7 @@ export const MOCK_SNAPSHOTS: Record<string, CapabilitySnapshot[]> = {
             id: 'SNAP-004-B',
             engineerId: 'E-004',
             evaluatorId: 'M-002',
-            evaluatedAt: '2025-12-15T10:00:00Z',
+            evaluatedAt: '2025-12-15T10:00:00Z',  // latest (only one)
             capabilities: {
                 SYSTEM_DESIGN:       1,
                 TECHNICAL_DEPTH:     2,
@@ -213,7 +212,7 @@ export const MOCK_SNAPSHOTS: Record<string, CapabilitySnapshot[]> = {
             id: 'SNAP-005-B',
             engineerId: 'E-005',
             evaluatorId: 'M-001',
-            evaluatedAt: '2026-01-12T10:00:00Z',
+            evaluatedAt: '2026-01-12T10:00:00Z',  // latest
             capabilities: {
                 SYSTEM_DESIGN:       4,
                 TECHNICAL_DEPTH:     3,
@@ -231,7 +230,7 @@ export const MOCK_SNAPSHOTS: Record<string, CapabilitySnapshot[]> = {
             id: 'SNAP-005-A',
             engineerId: 'E-005',
             evaluatorId: 'M-001',
-            evaluatedAt: '2025-07-01T10:00:00Z',
+            evaluatedAt: '2025-07-01T10:00:00Z',  // previous
             capabilities: {
                 SYSTEM_DESIGN:       3,
                 TECHNICAL_DEPTH:     3,
@@ -248,10 +247,9 @@ export const MOCK_SNAPSHOTS: Record<string, CapabilitySnapshot[]> = {
     ],
 }
 
-// TARGET PROFILES
+// ─── TARGET PROFILES ──────────────────────
 // What scores does each level require?
 // Used to calculate gaps + readiness
-
 export const TARGET_PROFILES: Record<Level, TargetProfile> = {
     L1: {
         level: 'L1',
@@ -303,26 +301,30 @@ export const TARGET_PROFILES: Record<Level, TargetProfile> = {
     },
 }
 
-// HELPER FUNCTIONS
+// ─── HELPER FUNCTIONS ─────────────────────
 // These replace DB queries until backend is ready
 
 // Get most recent snapshot for an engineer
+// → same as: SELECT * FROM snapshots WHERE engineer_id = ?
+//            ORDER BY evaluated_at DESC LIMIT 1
 export function getLatestSnapshot(
     engineerId: string
 ): CapabilitySnapshot | null {
     const snaps = MOCK_SNAPSHOTS[engineerId]
     if (!snaps || snaps.length === 0) return null
 
+    // [...snaps] = spread copies array before sorting
+    // Never mutate original — React won't detect changes
     return [...snaps].sort(
         (a, b) =>
             new Date(b.evaluatedAt).getTime() -
             new Date(a.evaluatedAt).getTime()
-    )[0]
-    // spread [...snaps] = don't mutate original array
-    // sort by date descending → newest first → [0]
+    )[0]  // [0] = newest first
 }
 
 // Get second most recent snapshot (for growth comparison)
+// → same as: SELECT * FROM snapshots WHERE engineer_id = ?
+//            ORDER BY evaluated_at DESC LIMIT 1 OFFSET 1
 export function getPreviousSnapshot(
     engineerId: string
 ): CapabilitySnapshot | null {
@@ -333,16 +335,15 @@ export function getPreviousSnapshot(
         (a, b) =>
             new Date(b.evaluatedAt).getTime() -
             new Date(a.evaluatedAt).getTime()
-    )[1]
-    // same sort, but [1] = second newest
+    )[1]  // [1] = second newest
 }
 
 // Get next level for promotion target
+// L3 → L4, L4 → L5, L6 → L6 (already at max)
 export function getNextLevel(current: Level): Level {
     const order: Level[] = ['L1', 'L2', 'L3', 'L4', 'L5', 'L6']
     const idx = order.indexOf(current)
     return idx < order.length - 1 ? order[idx + 1] : current
-    // if L6 already → return L6 (already at max)
 }
 
 // Get target profile for a level
